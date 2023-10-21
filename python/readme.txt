@@ -1,1 +1,1 @@
-Привет! В этой папке вы найдете проекты связанные с питон разработкой
+Hello! In this folder you will find projects related to python development
