@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header-one</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/header-one.css" />
+  </head>
+  <body>
+    <nav class="col-12">
+      <div class="col-1 dropdown list-list">
+        <button
+          class="btn btn-primary dropdown-toggle flex"
+          type="button"
+          id="Button1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        ></button>
+        <ul class="dropdown-menu" aria-labelledby="Button1">
+          <li><a class="dropdown-item" href="#">Войти</a></li>
+          <li><a class="dropdown-item" href="#">Зарегистрироваться</a></li>
+          <li><a class="dropdown-item" href="#">Обратная связь</a></li>
+          <li><a class="dropdown-item" href="#">Профиль</a></li>
+          <li><a class="dropdown-item" href="#">Вакансии</a></li>
+          <li><a class="dropdown-item" href="#">Интересное на странице</a></li>
+        </ul>
+      </div>
+
+      <div class="search-header">
+        <form action="/action_page.php" style="margin-right: 10px">
+          <input
+            class="form-control-md"
+            type="text"
+            placeholder="Search.."
+            name="search"
+          />
+        </form>
+      </div>
+  
+      <div class="row notif">
+        <section class="col-1 bell">
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample"
+            style="width: 25px; padding: 2px; background: none; border: 0"
+          >
+            <a class="block max-w-max" href="#" style="color: rgb(32, 30, 165)">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                data-config-id="auto-svg-6-2"
+              >
+                <path
+                  d="M18 13.18V10C17.9986 8.58312 17.4958 7.21247 16.5806 6.13077C15.6655 5.04908 14.3971 4.32615 13 4.09V3C13 2.73478 12.8946 2.48043 12.7071 2.29289C12.5196 2.10536 12.2652 2 12 2C11.7348 2 11.4804 2.10536 11.2929 2.29289C11.1054 2.48043 11 2.73478 11 3V4.09C9.60294 4.32615 8.33452 5.04908 7.41939 6.13077C6.50425 7.21247 6.00144 8.58312 6 10V13.18C5.41645 13.3863 4.911 13.7681 4.55294 14.2729C4.19488 14.7778 4.00174 15.3811 4 16V18C4 18.2652 4.10536 18.5196 4.29289 18.7071C4.48043 18.8946 4.73478 19 5 19H8.14C8.37028 19.8474 8.873 20.5954 9.5706 21.1287C10.2682 21.6621 11.1219 21.951 12 21.951C12.8781 21.951 13.7318 21.6621 14.4294 21.1287C15.127 20.5954 15.6297 19.8474 15.86 19H19C19.2652 19 19.5196 18.8946 19.7071 18.7071C19.8946 18.5196 20 18.2652 20 18V16C19.9983 15.3811 19.8051 14.7778 19.4471 14.2729C19.089 13.7681 18.5835 13.3863 18 13.18ZM8 10C8 8.93913 8.42143 7.92172 9.17157 7.17157C9.92172 6.42143 10.9391 6 12 6C13.0609 6 14.0783 6.42143 14.8284 7.17157C15.5786 7.92172 16 8.93913 16 10V13H8V10ZM12 20C11.651 19.9979 11.3086 19.9045 11.0068 19.7291C10.7051 19.5536 10.4545 19.3023 10.28 19H13.72C13.5455 19.3023 13.2949 19.5536 12.9932 19.7291C12.6914 19.9045 12.349 19.9979 12 20ZM18 17H6V16C6 15.7348 6.10536 15.4804 6.29289 15.2929C6.48043 15.1054 6.73478 15 7 15H17C17.2652 15 17.5196 15.1054 17.7071 15.2929C17.8946 15.4804 18 15.7348 18 16V17Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </a>
+          </button>
+
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasExampleLabel">
+                Уведомления
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Закрыть"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="">Уведомлений нет.</div>
+            </div>
+          </div>
+        </section>
+        <section class="col-1 messeg">
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#two"
+            aria-controls="offcanvasExample"
+            style="width: 25px; padding: 2px; background: none; border: 0"
+          >
+            <a class="block max-w-max" href="#" style="color: rgb(32, 30, 165)">
+              <img src="img/message.png" alt="message">
+            </a>
+          </button>
+
+          <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="two"
+            aria-labelledby="offcanvasExampleLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="Label">Сообщения</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Закрыть"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div class="">Сообщений нет.</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="home">
+
+        </div>
+
+      </div>
+
+      <div class="btn-head col-3">
+        <!--btn-head-->
+        <a href="#home" class="nav-item">Блог</a>
+        <!--доделать-->
+        <a href="#contact" class="nav-item">Задачи</a>
+        <!--доделать-->
+        <a href="#about" class="nav-item">Форум</a>
+        <!--доделать-->
+        <a href="#about" class="nav-item">Библиотека</a>
+        <!--доделать-->
+        <a href="#about" class="nav-item">Новости</a>
+        <!--доделать-->
+      </div>
+
+      <div class="nav-right">
+        <div class="hidden xl:flex flex-wrap items-center -m-3">
+          <div class="flex flex-wrap items-center -m-2">
+            <div>
+              <div class="user-info">
+                <div class="photo-profile">
+                  <img src="img/i.jpg" alt="" />
+                </div>
+                <div class="name-address">
+                  <h2 class="text-sm name text-white">Ivan</h2>
+                  <p class="text-sm address font-medium">
+                    jhonprogrammer@bk.ru
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="baby-arrow">
+              <a href="#">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  data-config-id="auto-svg-7-2"
+                >
+                  <path
+                    d="M17 9.17C16.8126 8.98375 16.5592 8.87921 16.295 8.87921C16.0308 8.87921 15.7774 8.98375 15.59 9.17L12 12.71L8.46001 9.17C8.27265 8.98375 8.0192 8.87921 7.75501 8.87921C7.49082 8.87921 7.23737 8.98375 7.05001 9.17C6.95628 9.26297 6.88189 9.37357 6.83112 9.49543C6.78035 9.61729 6.75421 9.74799 6.75421 9.88C6.75421 10.012 6.78035 10.1427 6.83112 10.2646C6.88189 10.3864 6.95628 10.497 7.05001 10.59L11.29 14.83C11.383 14.9237 11.4936 14.9981 11.6154 15.0489C11.7373 15.0997 11.868 15.1258 12 15.1258C12.132 15.1258 12.2627 15.0997 12.3846 15.0489C12.5064 14.9981 12.617 14.9237 12.71 14.83L17 10.59C17.0937 10.497 17.1681 10.3864 17.2189 10.2646C17.2697 10.1427 17.2958 10.012 17.2958 9.88C17.2958 9.74799 17.2697 9.61729 17.2189 9.49543C17.1681 9.37357 17.0937 9.26297 17 9.17Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        
+      
+    </nav>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
