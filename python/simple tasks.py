@@ -491,3 +491,124 @@ while True:
     break
 
 
+# Задача 20.
+# Пользователь вводит число N. Напишите функцию summa_n, которая принимает одно целое положительное число N и находит сумму всех чисел от 1 до N включительно.
+# Функция вызывается два раза: сначала от числа N, а затем от полученной суммы.
+def summa_n(n_in):
+  count = 0
+  for i in range(1, n_in + 1):
+    count += i
+  return count
+
+n = int(input('введите число n: '))
+new_summ = summa_n(n)
+print("Сумма от 1 до", n, "=", new_summ)
+final_result = summa_n(new_summ)
+print("Сумма от 1 до", n, "=", final_result)
+
+
+# 21 (НОД)
+
+# Например:
+# Введите первое число: 6
+# Введите второе число: 10
+# НОД = 2
+
+def gcd(x, y):
+    if x > y:
+        small = y
+    else:
+        small = x
+    gcd_find = 1
+    for i in range(1, small + 1):
+        if (x % i == 0) and (y % i == 0):
+            gcd_find = i
+
+    return gcd_find
+
+
+first_number = int(input("Первое число: "))
+second_number = int(input("Второе число: "))
+print("НОД=", gcd(first_number, second_number))
+
+# Задача 22
+# Вводится последовательность из N чисел. Нужно определить номер числа, у которого больше всего цифр, и вывести на экран соответствующее сообщение.
+# Если число отрицательное, то считать его за 0. 
+def numeral_count(number):
+  count = 0
+  while number > 0:
+    number //= 10
+    count += 1
+  return count
+
+def z(n):  
+  max_count = 0
+  max_number = 0
+  for _ in range(1, n + 1):
+    new_value = int(input('Введите число: '))
+    if new_value < 0:
+      print('Число отрицательное. Обнуляю!')
+      new_value = 0
+    
+    numeral = numeral_count(new_value) # присваиваем переменной значение функции
+    # secondNumeral = numeral_count(secondTask)
+    if numeral > max_count:
+      max_count = numeral
+      max_number = new_value
+  return max_number
+
+how_many = int(input("Введите количество чисел: "))
+print("Первая задача на обработку: ", z(how_many))
+
+
+# 23
+
+x = 1
+count = 0
+while x != 0:
+  x /=2
+  count += 1
+  print(x)
+print('Итераций',count)
+
+
+# 24
+
+# Пользователь вводит число N в экспоненциальной форме,
+#где мантисса всегда равна числу от 1 до 9, а порядок меньше нуля.
+#Также есть переменная Х, которая изначально равна единице.
+#Посчитать, сколько раз нужно прибавить N к Х, чтобы оно перевалило за двойку.
+
+# в данном примере защитой от некоректного ввода выступает функция float
+
+n = float(input('Введите число в экспоненциальной форме ')) # мантисса
+x = 1
+count = 0
+while x <= 2:
+    x += n
+    count += 1
+print("Кол-во прибавлений: ", count)
+
+
+# 25
+# Пользователь вводит положительное число x (x > 10). 
+# функция, которая выводит его в формате плавающей точки, то есть x = a *10 ** b, где 1 ≤ a < 10.
+
+# Пример 1:
+# Введите число: 16
+# Формат плавающей точки: x = 1.6 * 10 ** 1
+
+# Пример 2:
+# Введите число: 92345
+# Формат плавающей точки: x = 9.2345 * 10 ** 4
+
+start_number = float(input("Введите число: "))
+count = 0
+while start_number > 10:
+    count += 1
+    start_number /= 10
+
+print(f"Формат плавающей точки: x = {start_number} * 10 ** {count}")
+
+
+
