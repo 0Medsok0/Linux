@@ -1,52 +1,91 @@
 #include <iostream>
-#include <cmath> 
-#include <vector>
+#include <fstream>
+#include <cstdlib>
+#include <cmath>
 
 const int Nсл = 3;
 const int Nн_max = 30;
 const int Nн_min = 4;
 const int Nш = 10;
 
-int STRUC[Nсл] = {30, 30, 25}; 
-double NET[Nсл+1][Nн_max+1];
-double OUT[Nсл+1][Nн_max+1];
-double W[Nсл+1][Nн_max+1][Nн_max+1];
-int PATTERN[Nш+1][Nн_max+1];
-int TARGET[Nш+1][Nн_min+1];
+int STRUC[Nсл] = {30, 25, 4};
+float NET[Nсл + 1][Nн_max + 1];
+float OUT[Nсл + 1][Nн_max + 1];
+float W[Nсл][Nн_max + 1][Nн_max + 1];
+float PATTERN[Nш][Nн_max + 1];
+float TARGET[Nш][Nн_min];
 
-void initializeWeights() {
-    for (int k = 1; k <= Nсл; k++) {
-        for (int i = 1; i <= STRUC[k]; i++) {
-            for (int j = 1; j <= STRUC[k-1]; j++) {
-                W[k][i][j] = 0.5; // Replace with your own weight initialization values
+void InitializeWeights() {
+    for (int k = 0; k < Nсл; k++) {
+        for (int i = 1; i <= STRUC[k + 1]; i++) {
+            for (int j = 1; j <= STRUC[k]; j++) {
+                // W[k][j][i] = -1 + 2 * (float)rand() / RAND_MAX;
+                W[k][j][i] = static_cast<float>(-1 + 2 * rand() /static_cast<float>(RAND_MAX));
             }
         }
     }
 }
 
-void computeOutput(int m) {
-    for (int k = 1; k <= Nсл; k++) {
-        for (int i = 1; i <= STRUC[k]; i++) {
-            NET[k][i] = 0;
-            for (int j = 1; j <= STRUC[k-1]; j++) {
-                NET[k][i] += W[k][i][j] * OUT[k-1][j];
+void ForwardPass() {
+    for (int k = 0; k < Nсл; k++) {
+        for (int i = 1; i <= STRUC[k + 1]; i++) {
+            NET[k + 1][i] = 0;
+            for (int j = 1; j <= STRUC[k]; j++) {
+                NET[k + 1][i] += OUT[k][j] * W[k][j][i];
             }
-            OUT[k][i] = 1 / (1 + exp(-NET[k][i])); // Replace with your own activation function
-        }
-    }
-}
-
-void trainNetwork() {
-    for (int m = 1; m <= Nш; m++) {
-        computeOutput(m);
-        for (int i = 1; i <= Nн_min; i++) {
-            TARGET[m][i] = OUT[Nсл][i]; // Replace with your own target values
+            OUT[k + 1][i] = 1 / (1 + std::exp(-NET[k + 1][i]));
         }
     }
 }
 
 int main() {
-    initializeWeights();
-    trainNetwork();
+    int choice;
+    std::ifstream input;
+    std::ofstream output;
+    input.open("patterns.txt");
+    output.open("output.txt");
+
+    while (1) {
+        std::cout << "Menu:" << std::endl;
+        std::cout << "1: Load patterns" << std::endl;
+        std::cout << "2: Calc pattern" << std::endl;
+        std::cout << "3: Exit" << std::endl;
+        std::cin >> choice;
+
+        switch (choice) {
+            case 1:
+                // Load patterns
+                for (int m = 0; m < Nш; m++) {
+                    int patternNum;
+                    input >> patternNum;
+                    for (int i = 0; i < Nн_max; i++) {
+                        input >> PATTERN[patternNum][i];
+                    }
+                    for (int j = 0; j < Nн_min; j++) {
+                        input >> TARGET[patternNum][j];
+                    }
+                }
+                break;
+            case 2:
+                // Calc pattern
+                // Perform forward pass
+                ForwardPass();
+                // Output results
+                for (int i = 1; i <= STRUC[Nсл - 1]; i++) {
+                    output << OUT[Nсл][i] << " ";
+                }
+                output << std::endl;
+                break;
+            case 3:
+                // Exit
+                return 0;
+            default:
+                std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+    }
+
+    input.close();
+    output.close();
+
     return 0;
 }
