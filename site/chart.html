@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .chart {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 800px;
+        height: 400px;
+        margin: 10px;
+        margin-left: 25%;
+        border: 3px solid #3d3846;
+        padding: 1%;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60px;
+        margin-right: 10px;
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+        transition: background-color 0.3s ease-out;
+      }
+
+      .column:hover {
+        background-color: yellow;
+      }
+
+      .box{
+        display: flex;
+        margin-left: 27%;
+      }
+
+
+
+      .description {
+        display: none;
+        position: absolute;
+        margin-top: -20px;
+        margin-left: 10px;
+        padding: 5px;
+        color: black;
+        background-color: lightgray;
+        border-radius: 5px;
+        font-size: 12px;
+      }
+
+      .column:hover .description {
+        display: block;
+      }
+
+      .column:nth-child(1) {
+        background-color: blue;
+        padding-top: 30%;
+      }
+
+      .column:nth-child(2) {
+        background-color: red;
+        padding-top: 39%;
+      }
+
+      .column:nth-child(3) {
+        background-color: green;
+        padding-top: 34%;
+      }
+
+      .column:nth-child(4) {
+        background-color: orange;
+        padding-top: 31%;
+      }
+
+      .column:nth-child(5) {
+        background-color: purple;
+        padding-top: 20%;
+      }
+
+      .column:nth-child(6) {
+        background-color: pink;
+        padding-top: 37%;
+      }
+
+      .column:nth-child(7) {
+        background-color: yellowgreen;
+        padding-top: 31%;
+      }
+
+      .column:nth-child(8) {
+        background-color: teal;
+        padding-top: 33.5%;
+      }
+
+      .column:nth-child(9) {
+        background-color: brown;
+        padding-top: 45%;
+      }
+
+      .column:nth-child(10) {
+        background-color: magenta;
+        padding-top: 15%;
+      }
+
+      .column:nth-child(11) {
+        background-color: gray;
+        padding-top: 1%;
+      }
+
+      .column:nth-child(12) {
+        background-color: lightblue;
+        padding-top: 23%;
+      }
+
+      .checkbox {
+        margin-right: 5px;
+      }
+    </style>
+    <script>
+      function toggleColumn(columnIndex) {
+        var checkboxes = document.getElementsByClassName("checkbox");
+        var columns = document.getElementsByClassName("column");
+        var description = document.getElementsByClassName("description");
+
+        for (var i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            columns[i].style.display = "flex";
+            description[i].style.display = "none";
+          } else {
+            columns[i].style.display = "none";
+            description[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="chart">
+      <div class="column" title="Python">
+        <div class="description">Description for Python</div>
+        <span>Python</span>
+        <span>$60,000</span>
+      </div>
+      <div class="column" title="JavaScript">
+        <div class="description">Description for JavaScript</div>
+        <span>JavaScript</span>
+        <span>$80,000</span>
+      </div>
+      <div class="column" title="Java">
+        <div class="description">Description for Java</div>
+        <span>Java</span>
+        <span>$70,000</span>
+      </div>
+      <div class="column" title="C++">
+        <div class="description">Description for C++</div>
+        <span>C++</span>
+        <span>$65,000</span>
+      </div>
+      <div class="column" title="C">
+        <div class="description">Description for C</div>
+        <span>C</span>
+        <span>$45,000</span>
+      </div>
+      <div class="column" title="PHP">
+        <div class="description">Description for PHP</div>
+        <span>PHP</span>
+        <span>$75,000</span>
+      </div>
+      <div class="column" title="Kotlin">
+        <div class="description">Description for Kotlin</div>
+        <span>Kotlin</span>
+        <span>$63,000</span>
+      </div>
+      <div class="column" title="C#">
+        <div class="description">Description for C#</div>
+        <span>C#</span>
+        <span>$69,000</span>
+      </div>
+      <div class="column" title="Ruby">
+        <div class="description">Description for Ruby</div>
+        <span>Ruby</span>
+        <span>$100,000</span>
+      </div>
+      <div class="column" title="Scala">
+        <div class="description">Description for Scala</div>
+        <span>Scala</span>
+        <span>$30,000</span>
+      </div>
+      <div class="column" title="Assembler">
+        <div class="description">Description for Assembler</div>
+        <span>Assembler</span>
+        <span>$5,000</span>
+      </div>
+      <div class="column" title="Rust">
+        <div class="description">Description for Rust</div>
+        <span>Rust</span>
+        <span>$40,000</span>
+      </div>
+    </div>
+
+    <div class="box">
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(0)"
+      />
+      Python
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(1)"
+      />
+      JavaScript
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(2)"
+      />
+      Java
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(3)"
+      />
+      C++
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(4)"
+      />
+      C
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(5)"
+      />
+      PHP
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(6)"
+      />
+      Kotlin
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(7)"
+      />
+      C#
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(8)"
+      />
+      Ruby
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(9)"
+      />
+      Scala
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(10)"
+      />
+      Assembler
+      <input
+        class="checkbox"
+        type="checkbox"
+        checked
+        onclick="toggleColumn(11)"
+      />
+      Rust
+    </div>
+  </body>
+</html>
+
