@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Japanese Neon Logo</title>
+    <style>
+      /* CSS styling for the logo */
+      .logo {
+        width: 200px;
+        height: 200px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: #0d66afa1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        animation: neon 1.5s ease-in-out infinite alternate;
+        transition: background-color 0.5s;
+      }
+
+      @keyframes neon {
+        0% {
+          box-shadow: 0 0 10px rgb(245, 66, 227), 0 0 20px rgb(245, 66, 227),
+            0 0 30px rgb(245, 66, 227), 0 0 40px rgb(245, 66, 227),
+            0 0 50px rgb(245, 66, 227);
+        }
+        100% {
+          box-shadow: 0 0 20px rgb(245, 66, 227), 0 0 30px rgb(245, 66, 227),
+            0 0 40px rgb(245, 66, 227), 0 0 50px rgb(245, 66, 227),
+            0 0 60px rgb(245, 66, 227);
+        }
+      }
+
+      .logo:hover {
+        background-color: #12d3dab6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo"></div>
+  </body>
+</html>
