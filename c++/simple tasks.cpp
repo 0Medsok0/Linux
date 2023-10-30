@@ -298,3 +298,29 @@ int main() {
     
     return 0;
 }
+
+12)
+//функция *vector<int> Reversed(const vector<int>& v)*, возвращающуя копию вектора v, в которой числа переставлены в обратном порядке.
+
+// 1 2 3 4 5 reversing  5 4 3 2 1
+
+
+#include <iostream>
+#include <vector>
+
+std::vector<int> Reversed(const std::vector<int>& v) {
+  std::vector<int> reversed_v(v.rbegin(), v.rend());
+  return reversed_v;
+}
+
+int main() {
+  std::vector<int> original_v = {1, 2, 3, 4, 5};
+  std::vector<int> reversed_v = Reversed(original_v);
+
+  // Print the reversed vector
+  for (int num : reversed_v) {
+    std::cout << num << " ";
+  }
+
+  return 0;
+}
