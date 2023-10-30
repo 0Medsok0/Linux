@@ -239,3 +239,36 @@ int main() {
     }
     return 0;
 }
+
+10)
+
+// функция *MoveStrings*, которая принимает два вектора строк,
+// *source* и *destination*, и дописывает все строки из первого вектора в конец второго.
+// После выполнения функции вектор *source* должен оказаться пустым.
+
+//Result: Барнаул Новосибирск Уфа Томск
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+void MoveStrings(std::vector<std::string>& source, std::vector<std::string>& destination) {
+    destination.insert(destination.end(), source.begin(), source.end());
+    source.clear();
+}
+
+int main() {
+    std::vector<std::string> source = {"Уфа", "Томск"};
+    std::vector<std::string> destination = {"Барнаул", "Новосибирск"};
+    
+    MoveStrings(source, destination);
+    
+    // Print the contents of destination
+    for(const auto& str : destination) {
+        std::cout << str << " ";
+    }
+    
+    std::cout << std::endl;
+    
+    return 0;
+}
