@@ -160,4 +160,35 @@ int main() {
     return 0;
 }
 
-8)
+8) Polindrom Function
+
+// Enter a string: ded
+// The entered string is a palindrome.
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool IsPalindrom(string str) {
+    for (int i = 0; i < str.length() / 2; i++) {
+        if (str[i] != str[str.length() - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    cin >> input;
+    
+    if (IsPalindrom(input)) {
+        cout << "The entered string is a palindrome." << endl;
+    } else {
+        cout << "The entered string is not a palindrome." << endl;
+    }
+    
+    return 0;
+}
