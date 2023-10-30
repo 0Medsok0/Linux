@@ -269,6 +269,32 @@ int main() {
     }
     
     std::cout << std::endl;
+
+11)
+//функция *void Reverse(vector<int>& v)*,
+//которая переставляет элементы вектора в обратном порядке
+
+
+// 1 2 3 4 5 reverse to 5 4 3 2 1  
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+void Reverse(std::vector<int>& v) {
+    std::reverse(v.begin(), v.end());
+}
+
+int main() {
+    std::vector<int> v = {1, 2, 3, 4, 5};
+    Reverse(v);
+    
+    for (int num : v) {
+        std::cout << num << " ";
+    }
+    
+    return 0;
+}
     
     return 0;
 }
