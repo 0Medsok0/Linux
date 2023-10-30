@@ -192,3 +192,50 @@ int main() {
     
     return 0;
 }
+
+9) //Polindrom(2)
+    
+// Напишите функцию, которая* называется *PalindromFilter*
+// * возвращает *vector<string>*
+// * принимает *vector<string>* words и *int minLength* и возвращает все строки из вектора words, которые являются палиндромами и имеют длину не меньше *minLength*
+
+//Result:
+    
+// level 
+// stats
+
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+bool isPalindrome(string str) {
+    int len = str.length();
+    for (int i = 0; i < len / 2; i++) {
+        if (str[i] != str[len - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> PalindromFilter(vector<string>& words, int minLength) {
+    vector<string> result;
+    for (string word : words) {
+        if (word.length() >= minLength && isPalindrome(word)) {
+            result.push_back(word);
+        }
+    }
+    return result;
+}
+
+int main() {
+    vector<string> words = {"level", "hello", "stats", "word"};
+    int minLength = 4;
+    vector<string> filteredWords = PalindromFilter(words, minLength);
+    for (string word : filteredWords) {
+        cout << word << endl;
+    }
+    return 0;
+}
