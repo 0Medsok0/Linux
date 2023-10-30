@@ -324,3 +324,33 @@ int main() {
 
   return 0;
 }
+
+13)
+// Дано n вещественных чисел. Определить, образуют ли они возрастающую последовательность
+
+// Числа образуют возрастающую последовательность.
+
+#include <iostream>
+#include <vector>
+
+bool isIncreasingSequence(std::vector<double> numbers) {
+    for (int i = 1; i < numbers.size(); i++) {
+        if (numbers[i] <= numbers[i-1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    // Example usage
+    std::vector<double> numbers = {1.2, 2.4, 3.6, 4.8};
+    bool isIncreasing = isIncreasingSequence(numbers);
+    if (isIncreasing) {
+        std::cout << "Числа образуют возрастающую последовательность." << std::endl;
+    } else {
+        std::cout << "Числа не образуют возрастающую последовательность." << std::endl;
+    }
+    
+    return 0;
+}
